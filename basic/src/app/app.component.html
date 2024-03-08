@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App</title>
+</head>
+
+<body>
+
+  <!-- routing  -->
+
+    <div>
+    <nav>
+      <ul>
+        <li routerLink="first">first</li>
+        <li routerLink="second">second</li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- dynamic component  -->
+  <!--
+   <div>
+    <nav>
+      <ul>
+        <li *ngComponentOutlet="first"></li>
+        <li *ngComponentOutlet="second"></li>
+      </ul>
+    </nav>
+  </div>
+-->
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+
+  <!--  ngFor -->
+  <!-- <div *ngFor="let emp of employee">
+  {{emp.getid()}}
+  {{emp.getname()}}
+  </div> -->
+
+  <!-- dynamic component using ngComponentOutlet -->
+  <!-- <button (click)="switchAlert()">click here</button>
+  <ng-container *ngComponentOutlet="alert"></ng-container> -->
+
+
+  <!-- <app-childview></app-childview> -->
+<!-- <app-directive></app-directive> -->
+
+</body>
+
+</html>

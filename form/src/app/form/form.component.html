@@ -1,0 +1,14 @@
+<form [formGroup]="formData" novalidate (ngSubmit)="login()">
+
+  <label for="firstname">Firstname</label>
+  <input type="text" class="text" formControlName="firstname" />
+  <label for="lastname">Lastname</label>
+  <input type="text" class="text" formControlName="lastname" />
+  <label for="area">Area</label>
+  <input type="text" class="text" formControlName="area" />
+  <label for="city">City</label>
+  <input type="text" class="text" formControlName="city" />
+  <button type=”submit” [disabled]='!formData.valid'>Submit Application</button>
+</form>
+
+{{ formData.value | json }}

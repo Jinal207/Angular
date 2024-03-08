@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <div class="container">
+      <div class="container1">
+
+        <div class="box">
+          <label for="uid">Id : </label><span class="ast">*</span>
+          <div>
+            <input type="number" name="uid" id="uid" class="inputs" [(ngModel)]="model.uid" required #uid="ngModel" />
+          </div>
+          <div *ngIf="f.submitted && uid.errors" class="error">
+            <div *ngIf="uid.errors?.['required']">
+              Uid is required!
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <label for="name">Name : </label><span class="ast">*</span>
+          <div>
+            <input type="text" name="name" id="name" class="inputs" [(ngModel)]="model.name" required #name="ngModel"
+              autocomplete="name" />
+          </div>
+          <div *ngIf="f.submitted && name.errors" class="error">
+            <div *ngIf="name.errors?.['required']">
+              Name is required!
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <label for="age">Age : </label><span class="ast">*</span>
+          <div class="">
+            <input type="number" name="age" id="age" class="inputs" [(ngModel)]="model.age" min="18" max="70" required
+              #age="ngModel" />
+          </div>
+          <div *ngIf="f.submitted && age.errors" class="error">
+            <div *ngIf="age.errors?.['required']">
+              Age is required!
+            </div>
+            <div *ngIf="age.errors?.['min']" class="error">
+              Age should be greater than 18 or above
+            </div>
+            <div *ngIf="age.errors?.['max']" class="error">
+              Age should be less than 70 or below
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <p class="address">Address : </p>
+          <div ngModelGroup="address" id="address" name="address">
+
+            <div class="box">
+              <label for="houseNo">House No : </label><span class="ast">*</span>
+              <div class="">
+                <input type="text" name="houseNo" id="houseNo" [(ngModel)]="model.address.houseNo" class="inputs"
+                  #houseNo="ngModel" required />
+              </div>
+              <div *ngIf="f.submitted && houseNo.errors" class="error">
+                <div *ngIf="houseNo.errors?.['required']">
+                  House no is required!
+                </div>
+              </div>
+            </div>
+
+            <div class="box">
+              <label for="addressLine1">Address 1 : </label><span class="ast">*</span>
+              <div class="">
+                <input type="text" name="addressLine1" id="addressLine1" [(ngModel)]="model.address.addressLine1"
+                  class="inputs" #address1="ngModel" required />
+              </div>
+              <div *ngIf="f.submitted && address1.errors" class="error">
+                <div *ngIf="address1.errors?.['required']">
+                  Address 1 is required!
+                </div>
+              </div>
+            </div>
+
+            <div class="box">
+              <label for="addressLine2">Address 2 : </label>
+              <div class="">
+                <input type="text" name="addressLine2" id="addressLine2" class="inputs"
+                  [(ngModel)]="model.address.addressLine2" />
+              </div>
+            </div>
+
+            <div class="box">
+              <label for="country">Country : </label>
+              <div class="countryField">
+                <select name="country" id="country" class="selection" [(ngModel)]="model.address.country"
+                  autocomplete="country">
+                  <option value=""></option>
+                  <option value="india">India</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="box">
+              <label for="state">State : </label>
+              <div class="stateField">
+                <select name="state" id="state" class="selection" [(ngModel)]="model.address.state">
+                  <option value=""></option>
+                  <option value="gujarat">Gujarat</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="box">
+              <label for="city">City : </label>
+              <div class="cityField">
+                <select name="city" id="city" class="selection" [(ngModel)]="model.address.city">
+                  <option value=""></option>
+                  <option value="surat">Surat</option>
+                  <option value="ahemdabad">Ahemdabad</option>
+                  <option value="rajkot">Rajkot</option>
+                  <option value="vadodara">Vadodara</option>
+                  <option value="jamnagar">Jamnagar</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>

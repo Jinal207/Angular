@@ -1,0 +1,30 @@
+.container {
+  margin-left: 30%;
+}
+
+.main {
+  color: grey;
+  width: 600px;
+}
+
+.result {
+  font-weight: bold;
+}
+
+.uppercase,
+.lowercase,
+.date,
+.currency,
+.json,
+.decimal,
+.percentage,
+.slice {
+  background-color: rgb(227, 239, 243);
+  width: 800px;
+}
+
+.heading {
+  font-size: 40px;
+  text-align: center;
+  color: red;
+}

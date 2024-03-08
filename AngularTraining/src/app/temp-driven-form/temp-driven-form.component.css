@@ -1,0 +1,52 @@
+.container {
+  padding: 20px;
+  margin: 2% 25%;
+  /* border:1px solid black; */
+  width: 20%;
+  align-items: center;
+  height: auto
+}
+
+.container1 {
+  margin-left: 90px
+}
+
+input {
+  margin: 5px 0px 5px 0px;
+}
+
+input:hover {
+  border: 2px solid black;
+}
+
+button {
+  margin-left: 60px;
+  margin-top: 9px;
+}
+
+label {
+  font-weight: bold;
+  color: rgb(58, 112, 91)
+}
+
+.countryField {
+  display: inline;
+  margin-left: 10px
+}
+
+.selection {
+  width: 100px
+}
+
+.genderField {
+  display: inline;
+  margin-left: 7px
+}
+
+.ischeckField {
+  width: 200px
+}
+
+.error {
+  color: rgb(201, 77, 77)
+}

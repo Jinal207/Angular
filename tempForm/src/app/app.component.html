@@ -1,0 +1,52 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+
+  <div>
+    <label for="name">Name : </label>
+    <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+    <div [hidden]="name.valid" [style.color]="'red'">
+      <!-- <div *ngIf="name.invalid"> -->
+      Name is required
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email : </label>
+    <input name="email" type="email" required [(ngModel)]="model.email" #email="ngModel">
+    <div [hidden]="email.valid" [style.color]="'red'">
+      Email is required
+    </div>
+  </div>
+
+  <div>
+    <label for="gender">Gender : </label>
+    <input type="radio" value="male" name="gender" [(ngModel)]="model.gender" #gender="ngModel" required>Male
+    <input type="radio" value="female" name="gender" [(ngModel)]="model.gender" #gender="ngModel" required>Female
+    <div [hidden]="gender.valid" ngClass="red">
+      Gender is required
+    </div>
+  </div>
+  <!-- [ngStyle]="{'color':'blue'}" -->
+  <div>
+    <label for="status">Status : </label>
+    <input type="checkbox" name="status" [(ngModel)]="model.status">
+  </div>
+
+  <div>
+    <label for="country">Country : </label>
+    <select name="country" id="" [(ngModel)]="model.country" #country="ngModel" required>
+      <option [ngValue]="c.name" *ngFor="let c of countryList">{{c.name}}</option>
+    </select>
+    <div ngClass="red" [hidden]="country.valid">
+      Country is required
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="f.invalid">Submit</button>
+</form>
+
+<pre>Status : {{f.status}} </pre>
+<pre>Value : {{f.value|json}} </pre>
+<pre>Valid : {{f.valid}} </pre>
+<pre>Touched : {{f.touched}} </pre>
+<pre>Dirty : {{f.dirty}} </pre>
+<pre>Submitted : {{f.submitted}} </pre>

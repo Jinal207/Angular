@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <div class="container">
+      <div class="container1">
+
+        <div>
+          <label for="fname">Firstname : </label>
+          <div>
+            <input type="text" name="fname" id="fname" [(ngModel)]="model.fname" required #firstname="ngModel" />
+          </div>
+          <div *ngIf="firstname.errors && firstname.touched" class="error">
+            Firstname can't be empty
+          </div>
+        </div>
+
+        <div>
+          <label for="lname">Lastname : </label>
+          <div>
+            <input type="text" name="lname" id="lname" [(ngModel)]="model.lname" />
+          </div>
+        </div>
+
+        <div>
+          <label for="email">Email : </label>
+          <div>
+            <input type="email" name="email" id="email" [(ngModel)]="model.email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" email required #eml="ngModel" />
+          </div>
+          <div *ngIf="eml.invalid && eml.touched" class="error">
+            Email can't be empty or Provide proper email
+          </div>
+        </div>
+
+        <div>
+          <label for="mno">Telephone : </label>
+          <div>
+            <input type="tel" name="mno" id="mno" [(ngModel)]="model.mno" required #mobile="ngModel"
+              pattern="^[0-9]{10}$" />
+          </div>
+          <div *ngIf="mobile.invalid && mobile.touched" class="error">
+            Mobile no can't be empty or Provide proper mobile no with 10 digits only
+          </div>
+        </div>
+
+        <div>
+          <label for="gender">Gender : </label>
+          <div class="genderField" id="gender">
+            <input type="radio" name="gender" value="male" [(ngModel)]="model.gender" />Male
+            <input type="radio" name="gender" value="female" [(ngModel)]="model.gender" />Female
+          </div>
+        </div>
+
+        <div>
+          <label for="country">Country : </label>
+          <div class="countryField">
+            <select name="country" id="country" class="selection" [(ngModel)]="model.country">
+              <option value=""></option>
+              <option value="india">India</option>
+              <option value="canada">Canada</option>
+              <option value="italy">Italy</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ischeckField">
+          <div>
+            <input type="checkbox" name="isCheck" [(ngModel)]="model.isCheck" required #check="ngModel" /> I have read
+            the T & C
+          </div>
+          <div *ngIf="check.invalid" class="error">
+            Select the checkbox to submit the form
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" [disabled]="f.invalid">Submit</button>
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+
+</body>
+
+</html>

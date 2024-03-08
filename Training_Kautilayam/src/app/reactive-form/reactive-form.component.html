@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+      <div class="container1">
+
+        <div class="box">
+          <label for="id">Id : </label><span class="ast">*</span>
+          <div>
+            <input type="number" name="id" id="id" class="inputs" formControlName="id" />
+          </div>
+          <div *ngIf="isSubmited && userForm.controls.id.errors" class="error">
+            <div *ngIf="userForm.controls.id.errors?.['required']">
+              Id is required!
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <label for="name">Name : </label><span class="ast">*</span>
+          <div>
+            <input type="text" name="name" id="name" class="inputs" formControlName="name" />
+          </div>
+          <div *ngIf="isSubmited && userForm.controls.name.errors" class="error">
+            <div *ngIf="userForm.controls.name.errors?.['required']">
+              Name is required!
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <label for="age">Age : </label><span class="ast">*</span>
+          <div>
+            <input type="number" name="age" id="age" class="inputs" formControlName="age" />
+          </div>
+          <div *ngIf="isSubmited && userForm.controls.age.errors" class="error">
+            <div *ngIf="userForm.controls.age.errors?.['required']">
+              age is required!
+            </div>
+            <div *ngIf="userForm.controls.age.errors?.['min']">
+              age should be 18 or above!
+            </div>
+            <div *ngIf="userForm.controls.age.errors?.['max']">
+              age should be 75 or below!
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <label for="email">Email : </label><span class="ast">*</span>
+          <div>
+            <input type="text" name="email" id="email" class="inputs" formControlName="email" />
+          </div>
+          <div *ngIf="isSubmited && userForm.controls.email.errors" class="error">
+            <div *ngIf="userForm.controls.email.errors?.['required']">
+              Email is required!
+            </div>
+            <div *ngIf="userForm.controls.email.errors?.['pattern']">
+              Email is not proper!
+            </div>
+          </div>
+        </div>
+
+        <div formArrayName="address" class="address">
+
+          <label for="addressLine1">Address : </label>
+          <!-- <div *ngFor="let address of userForm.get('address').controls; let i = index" [formGroupName]="i"> -->
+          <div class="box">
+            <label for="addressLine1">Address Line 1 : </label><span class="ast">*</span>
+            <div>
+              <input type="text" name="addressLine1" id="addressLine1" class="inputs" formControlName="addressLine1" />
+            </div>
+            <!-- <div *ngIf="isSubmited && userForm.controls.address.controls.addressLine1.errors" class="error">
+              <div *ngIf="userForm.controls.address.controls.addressLine1.errors?.['required']">
+                Address Line 1 is required!
+              </div>
+            </div> -->
+          </div>
+
+          <div class="box">
+            <label for="addressLine2">Address Line 2 : </label>
+            <div>
+              <input type="text" name="addressLine2" id="addressLine2" class="inputs" formControlName="addressLine2" />
+            </div>
+          </div>
+
+          <div class="box">
+            <label for="landmark">Landmark : </label><span class="ast">*</span>
+            <div>
+              <input type="text" name="landmark" id="landmark" class="inputs" formControlName="landmark" />
+            </div>
+            <!-- <div *ngIf="isSubmited && userForm.controls.address.controls.landmark.errors" class="error">
+              <div *ngIf="userForm.controls.address.controls.landmark.errors?.['required']">
+                landmark is required!
+              </div>
+            </div> -->
+          </div>
+
+          <div class="box">
+            <label for="addressLine1">Country : </label><span class="ast">*</span>
+            <div>
+              <select name="country" id="country" formControlName="country" class="selectFields">
+                <option value="india">India</option>
+              </select>
+            </div>
+            <!-- <div *ngIf="isSubmited && userForm.controls.address.controls.country.errors" class="error">
+              <div *ngIf="userForm.controls.address.controls.country.errors?.['required']">
+                Country is required!
+              </div>
+            </div> -->
+          </div>
+
+          <div class="box">
+            <label for="state">State : </label><span class="ast">*</span>
+            <div>
+              <select name="state" id="state" formControlName="state" class="selectFields">
+                <option value="gujarat">Gujarat</option>
+              </select>
+            </div>
+            <!-- <div *ngIf="isSubmited && userForm.controls.address.controls.state.errors" class="error">
+              <div *ngIf="userForm.controls.address.controls.state.errors?.['required']">
+                State is required!
+              </div>
+            </div> -->
+          </div>
+
+          <div class="box">
+            <label for="city">City : </label><span class="ast">*</span>
+            <div>
+              <select name="city" id="city" formControlName="city" class="selectFields">
+                <option value="surat">Surat</option>
+                <option value="ahemadabad">Ahemadabad</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="vadodara">Vadodara</option>
+              </select>
+            </div>
+            <!-- <div *ngIf="isSubmited && userForm.controls.address.controls.city.errors" class="error">
+              <div *ngIf="userForm.controls.address.controls.city.errors?.['required']">
+                City is required!
+              </div>
+            </div> -->
+          </div>
+
+          <!-- </div> -->
+        </div>
+
+        <div>
+          <button type="button  " (click)="addItem()">Add</button>
+        </div>
+
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+
+      </div>
+    </div>
+    
+  </form>
+</body>
+
+</html>

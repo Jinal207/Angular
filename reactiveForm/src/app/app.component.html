@@ -1,0 +1,39 @@
+<div class="container">
+
+  <form [formGroup]="myForm" novalidate>
+    <div class="inputContainer">
+      <label for="username">Username : </label>
+      <input type="text" name="username" id="" formControlName="username">
+      <div class="error" [hidden]="myForm.controls.username.valid">
+        <!-- *ngIf="myForm.controls.username.invalid" -->
+        Username can't be empty
+      </div>
+    </div>
+
+    <div class="inputContainer">
+      <label for="email">Email : </label>
+      <input type="email" name="email" id="" formControlName="email">
+      <div class="error" [hidden]="myForm.controls.email.valid">
+        Email can't be empty
+      </div>
+    </div>
+
+    <div class="inputContainer">
+      <label for="cno">Contact no : </label>
+      <input type="text" name="cno" id="" formControlName="cno">
+      <div class="error" [hidden]="myForm.controls.cno.valid">
+        Contact can't be empty
+      </div>
+    </div>
+    <button type="submit" [disabled]="!myForm.valid" (click)="submit()">Submit</button>
+    <!-- <button type="submit" (click)="submit()">Submit</button> -->
+  </form>
+</div>
+
+<p [attr.height]="300">
+hey
+</p>
+<!-- <app-pipe></app-pipe> -->
+
+
+<!-- <input type="text" appRainbow /> -->

@@ -1,0 +1,43 @@
+<div class="container">
+  <p [ngStyle]="{'font-size': '30px'}">font 1</p>
+  <p [ngStyle]="{'font-size.px':'20'}">font 2</p>
+  <p [ngStyle]="{'font-size':'10px','font-weight':'bold'}">font 3</p>
+</div>
+
+<div class="container">
+  <span [ngSwitch]="color">
+    <span *ngSwitchCase="'red'" [style.color]="'red'">color is red</span>
+    <span *ngSwitchCase="'blue'" [style.color]="'blue'">color is blue</span>
+  </span>
+</div>
+
+<div class="container">
+  <p ngClass="primary big italic">font 1</p>
+  <p [ngClass]="{ primary: false, big: true }">font 2</p>
+  <p [ngClass]="{' primary italic': false, big: false }">font 3</p>
+  <p [ngClass]="['primary','big']">font 4</p>
+  <p [ngClass]="['primary italic','big']">font 5</p>
+  <p [ngClass]={red:true}>font 6</p>
+</div>
+
+<!-- <div class="container" *ngFor="let item of num">
+  <div *ngIf="item%2!==0">
+    <p class="demo" ngClass="red">
+      {{item}}
+    </p>
+  </div>
+  <div>
+    <p class="demo">
+      {{item}}
+    </p>
+  </div>
+</div> -->
+
+<table border="1" *ngFor="let item of num">
+  <tr ngClass="red" *ngIf="item%2!==0">
+    <td>{{item}}</td>
+  </tr>
+  <tr *ngIf="item%2==0">
+    <td>{{item}}</td>
+  </tr>
+</table>

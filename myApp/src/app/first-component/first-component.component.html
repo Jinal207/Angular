@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+
+    <!-- ngClass-->
+  <p ngClass="primary big italic">font 1</p>
+  <p [ngClass]="{ primary: false, big: true }">font 2</p>
+  <p [ngClass]="{' primary italic': false, big: true }">font 3</p>
+  <p [ngClass]="['primary','big']">font 4</p>
+  <p [ngClass]="['primary italic','big']">font 5</p>
+
+     <input [(ngModel)]="name" />
+    <p>{{name}}</p>
+    <!-- "The sum of 1 + 1 is not 4" -->
+
+  <button [disabled]="isdisable"> disable</button>
+
+ <p [ngClass]={red:false}>first component</p>
+
+  <p [ngStyle]="{'color':'blue'}">first component</p>
+  </body>
+
+</html>

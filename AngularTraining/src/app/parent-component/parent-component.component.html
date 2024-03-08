@@ -1,0 +1,5 @@
+<h3>parent-component : </h3>
+<p>count : {{count}}</p>
+<button (click)="randNumberFunc()">click to generate random number</button>
+<p>random number in parent : {{randNumber}}</p>
+<app-child-component [childMsg]="parentMsg" (countFunc)="counthandler($event)" [randNumber]="randNumber"></app-child-component>

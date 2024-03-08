@@ -1,0 +1,33 @@
+
+<!-- todo list -->
+<div class="container-fluid mt-4" style="text-align: center; width: 600px">
+  <button class="btn btn-warning" (click)="addtask()" type="button">
+    Click Here To Add The Task
+  </button>
+
+  <div class="container mt-4" style="text-align: center; background-color: rgb(233, 233, 233)">
+    <div style="text-align: center" *ngFor="let task of taskList; let i = index">
+      <div>
+        <span>
+      {{i + 1}}
+          <input class="input p-1" type="text" [(ngModel)]="task.title" />
+          <span>
+
+            <button class="btn btn-outline-danger m-3" (click)="removetask(i)">
+              x
+            </button>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- component lifecycle -->
+<!-- <div>
+  <input [(ngModel)]="data">
+  {{data}}
+
+  <button type="submit" (click)="addNumber()">Add</button>
+  <button type="submit" (click)="deleteNumber()">Delete</button>
+</div> -->

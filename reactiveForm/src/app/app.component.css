@@ -1,0 +1,32 @@
+.container{
+  margin:5% 35%;
+  border:0.5px solid grey;
+ padding:15px 30px;
+ width:230px
+}
+
+input{
+  border:1px solid rgb(153, 153, 153);
+  display:block;
+}
+
+input:hover{
+  border:1px solid black
+}
+
+.error{
+  margin-top:1px;
+  color:rgb(235, 26, 26)
+}
+
+button{
+  padding:5px 20px;
+  /* border:1px solid black; */
+  border-radius: 7px;
+  margin-left:70px
+  /* background-color: white; */
+}
+
+.inputContainer{
+margin:10px 30px
+}

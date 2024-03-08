@@ -1,0 +1,81 @@
+<div class="container">
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <form [formGroup]="userform" (ngSubmit)="submitForm()">
+        <div class="row d-flex mt-2">
+          <div class="form-group col-md-6">
+            <label for="formGroupExampleInput1">Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput1" name="name" formControlName="name"
+              placeholder="" />
+            <div class="col-md-6" *ngIf="(userform.get('name').errors?.required)" [style.color]="'red'">name is required
+            </div>
+          </div>
+          <div class="form-group col-md-6 ">
+            <label for="formGroupExampleInput2">Phone Number</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" name="mno" formControlName="mno"
+              placeholder="" />
+            <div class="col-md-6" *ngIf="(userform.get('mno').errors?.pattern)" [style.color]="'red'">mobile number
+              should have 10 digits only</div>
+          </div>
+          <!-- <div class="col-md-6" *ngIf="(userform.get('name').hasError('required'))" [style.color]="'red'">name is required</div> -->
+        </div>
+
+        <div class="row d-flex mt-2">
+          <div class="form-group col-md-6">
+            <label for="formGroupExampleInput3">Email</label>
+            <input type="text" class="form-control" id="formGroupExampleInput3" name="email" formControlName="email"
+              placeholder="" />
+            <div *ngIf="(userform.get('email').errors?.pattern)" [style.color]="'red'"> provide proper email</div>
+          </div>
+          <div class="form-group col-md-6 ">
+            <label for="formGroupExampleInput4">Age</label>
+            <input type="text" class="form-control" id="formGroupExampleInput4" name="age" formControlName="age"
+              placeholder="" />
+            <div *ngIf="(userform.get('age').errors?.pattern)" [style.color]="'red'">invalid age</div>
+
+          </div>
+        </div>
+
+        <div class="row d-flex mt-2 btns">
+          <button type="submit" class="btn btn-primary ml-3 mr-1 col-md-6 "
+            [disabled]="userform.invalid">Submit</button>
+          <button type="reset" class="btn btn-secondary ml-3 mr-1 col-md-6"> Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="tab-pane fade  show active mt-5" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mobile No</th>
+              <th scope="col">Age</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{user.id}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.mno}}</td>
+              <td>{{user.age}}</td>
+              <td>
+                <button type="button" class="btn btn-primary" (click)="updateUser (user.id)">Update</button>
+                <button type="button" class="btn btn-danger" (click)="deleteDataById(user.id)">Delete</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+</div>

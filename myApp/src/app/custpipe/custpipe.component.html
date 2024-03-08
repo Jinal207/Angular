@@ -1,0 +1,14 @@
+<!-- -------- pipe example ------ -->
+<div>
+  <p>Fahrenheit to Celsius </p>
+  <input type="text" [(ngModel)]="f">
+  {{f|transpipe:"C"}}
+  </div>
+
+  <div>
+    <p>Celsius to Fahrenheit</p>
+    <input type="text" [(ngModel)]="c">
+    {{c|transpipe:"F"}}
+    </div>
+
+  <!-- --------------------------- -->

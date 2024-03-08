@@ -1,0 +1,49 @@
+.container {
+  padding: 10px;
+  margin: 2% 25%;
+  border: 1px solid black;
+  width: 20%;
+  align-items: center;
+  height: auto
+}
+
+.container1 {
+  margin-left: 60px
+}
+
+.box {
+  margin-top: 15px;
+}
+
+.inputs {
+  width: 250px
+}
+
+input:hover {
+  border: 2px solid black;
+}
+
+button {
+  margin-left: 90px;
+  margin-top: 9px;
+}
+
+label {
+  font-weight: bold;
+  color: rgb(58, 112, 91)
+}
+
+.error,
+.ast {
+  color: rgb(201, 77, 77)
+}
+
+.address{
+  margin-top:10px;
+}
+
+
+.selectFields
+{
+  width: 260px
+}

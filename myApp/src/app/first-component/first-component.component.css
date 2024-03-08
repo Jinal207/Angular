@@ -1,0 +1,21 @@
+p {
+  text-align: center;
+  padding: 5px;
+}
+
+.primary {
+  color: green;
+}
+
+.big {
+  font-size: 20px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+
+.red{
+  color:red
+}

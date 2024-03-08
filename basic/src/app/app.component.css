@@ -1,0 +1,14 @@
+ul {
+  background-color: grey;
+  width: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+ul li {
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 20px;
+  color: white;
+  position: relative;
+}
